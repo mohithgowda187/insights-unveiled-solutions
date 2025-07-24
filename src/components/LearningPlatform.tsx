@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   Play, 
   Brain, 
@@ -136,22 +138,135 @@ const LearningPlatform = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="relative overflow-hidden border-0 shadow-smooth hover:shadow-glow transition-all duration-300 group">
-                <div className={`absolute top-0 left-0 w-full h-1 ${feature.gradient}`} />
-                <CardHeader className="pb-4">
-                  <div className={`w-12 h-12 rounded-lg ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <feature.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            {features.map((feature, index) => {
+              if (feature.title === "AI-Powered Note Generation") {
+                return (
+                  <Dialog key={index}>
+                    <DialogTrigger asChild>
+                      <Card className="relative overflow-hidden border-0 shadow-smooth hover:shadow-glow transition-all duration-300 group cursor-pointer">
+                        <div className={`absolute top-0 left-0 w-full h-1 ${feature.gradient}`} />
+                        <CardHeader className="pb-4">
+                          <div className={`w-12 h-12 rounded-lg ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                            <feature.icon className="h-6 w-6 text-white" />
+                          </div>
+                          <CardTitle className="text-lg">{feature.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <CardDescription className="text-base leading-relaxed">
+                            {feature.description}
+                          </CardDescription>
+                        </CardContent>
+                      </Card>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[80vh]">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2">
+                          <Brain className="h-6 w-6 text-primary" />
+                          AI Notes Generation Repository
+                        </DialogTitle>
+                      </DialogHeader>
+                      <ScrollArea className="h-[60vh] pr-4">
+                        <div className="space-y-4">
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <h3 className="font-semibold text-lg mb-2">Repository: mohanrmoni54-collab/ai_notes_generation</h3>
+                            <p className="text-muted-foreground">JavaScript-based AI note generation application</p>
+                          </div>
+                          
+                          <div className="space-y-4">
+                            <div>
+                              <h4 className="font-semibold mb-2">Project Structure</h4>
+                              <div className="bg-muted/30 p-3 rounded-lg space-y-2 text-sm">
+                                <div className="flex items-center gap-2">
+                                  <FileText className="h-4 w-4 text-primary" />
+                                  <span>server.js - Main server file</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <FileText className="h-4 w-4 text-primary" />
+                                  <span>package.json - Project dependencies</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <FileText className="h-4 w-4 text-primary" />
+                                  <span>public/ - Static assets directory</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <FileText className="h-4 w-4 text-primary" />
+                                  <span>uploads/ - File upload directory</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div>
+                              <h4 className="font-semibold mb-2">Technology Stack</h4>
+                              <div className="grid grid-cols-3 gap-2">
+                                <Badge variant="secondary">JavaScript (64.3%)</Badge>
+                                <Badge variant="secondary">CSS (27.7%)</Badge>
+                                <Badge variant="secondary">HTML (8.0%)</Badge>
+                              </div>
+                            </div>
+
+                            <div>
+                              <h4 className="font-semibold mb-2">Repository Details</h4>
+                              <div className="bg-muted/30 p-3 rounded-lg space-y-2 text-sm">
+                                <p><strong>Status:</strong> Public Repository</p>
+                                <p><strong>Commits:</strong> 1 Commit</p>
+                                <p><strong>Stars:</strong> 0</p>
+                                <p><strong>Forks:</strong> 0</p>
+                                <p><strong>Language Distribution:</strong> JavaScript (64.3%), CSS (27.7%), HTML (8.0%)</p>
+                              </div>
+                            </div>
+
+                            <div>
+                              <h4 className="font-semibold mb-2">Key Features</h4>
+                              <div className="space-y-2 text-sm">
+                                <div className="flex items-start gap-2">
+                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                  <span>Node.js server implementation for AI note processing</span>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                  <span>File upload functionality for document processing</span>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                  <span>Web-based interface for user interaction</span>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                  <span>Real-time AI-powered note generation capabilities</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="mt-6 p-4 bg-primary/10 rounded-lg">
+                            <p className="text-sm text-muted-foreground">
+                              <strong>View Repository:</strong> <a href="https://github.com/mohanrmoni54-collab/ai_notes_generation" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://github.com/mohanrmoni54-collab/ai_notes_generation</a>
+                            </p>
+                          </div>
+                        </div>
+                      </ScrollArea>
+                    </DialogContent>
+                  </Dialog>
+                );
+              }
+              
+              return (
+                <Card key={index} className="relative overflow-hidden border-0 shadow-smooth hover:shadow-glow transition-all duration-300 group">
+                  <div className={`absolute top-0 left-0 w-full h-1 ${feature.gradient}`} />
+                  <CardHeader className="pb-4">
+                    <div className={`w-12 h-12 rounded-lg ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <CardTitle className="text-lg">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base leading-relaxed">
+                      {feature.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
