@@ -21,6 +21,7 @@ import {
   Award
 } from "lucide-react";
 import heroImage from "@/assets/ai-learning-hero.jpg";
+import AINotesGenerator from "./AINotesGenerator";
 
 const LearningPlatform = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -158,92 +159,15 @@ const LearningPlatform = () => {
                         </CardContent>
                       </Card>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[80vh]">
+                    <DialogContent className="max-w-6xl max-h-[90vh]">
                       <DialogHeader>
                         <DialogTitle className="flex items-center gap-2">
                           <Brain className="h-6 w-6 text-primary" />
-                          AI Notes Generation Repository
+                          AI-Powered Note Generation
                         </DialogTitle>
                       </DialogHeader>
-                      <ScrollArea className="h-[60vh] pr-4">
-                        <div className="space-y-4">
-                          <div className="bg-muted/50 p-4 rounded-lg">
-                            <h3 className="font-semibold text-lg mb-2">Repository: mohanrmoni54-collab/ai_notes_generation</h3>
-                            <p className="text-muted-foreground">JavaScript-based AI note generation application</p>
-                          </div>
-                          
-                          <div className="space-y-4">
-                            <div>
-                              <h4 className="font-semibold mb-2">Project Structure</h4>
-                              <div className="bg-muted/30 p-3 rounded-lg space-y-2 text-sm">
-                                <div className="flex items-center gap-2">
-                                  <FileText className="h-4 w-4 text-primary" />
-                                  <span>server.js - Main server file</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <FileText className="h-4 w-4 text-primary" />
-                                  <span>package.json - Project dependencies</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <FileText className="h-4 w-4 text-primary" />
-                                  <span>public/ - Static assets directory</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <FileText className="h-4 w-4 text-primary" />
-                                  <span>uploads/ - File upload directory</span>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div>
-                              <h4 className="font-semibold mb-2">Technology Stack</h4>
-                              <div className="grid grid-cols-3 gap-2">
-                                <Badge variant="secondary">JavaScript (64.3%)</Badge>
-                                <Badge variant="secondary">CSS (27.7%)</Badge>
-                                <Badge variant="secondary">HTML (8.0%)</Badge>
-                              </div>
-                            </div>
-
-                            <div>
-                              <h4 className="font-semibold mb-2">Repository Details</h4>
-                              <div className="bg-muted/30 p-3 rounded-lg space-y-2 text-sm">
-                                <p><strong>Status:</strong> Public Repository</p>
-                                <p><strong>Commits:</strong> 1 Commit</p>
-                                <p><strong>Stars:</strong> 0</p>
-                                <p><strong>Forks:</strong> 0</p>
-                                <p><strong>Language Distribution:</strong> JavaScript (64.3%), CSS (27.7%), HTML (8.0%)</p>
-                              </div>
-                            </div>
-
-                            <div>
-                              <h4 className="font-semibold mb-2">Key Features</h4>
-                              <div className="space-y-2 text-sm">
-                                <div className="flex items-start gap-2">
-                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                                  <span>Node.js server implementation for AI note processing</span>
-                                </div>
-                                <div className="flex items-start gap-2">
-                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                                  <span>File upload functionality for document processing</span>
-                                </div>
-                                <div className="flex items-start gap-2">
-                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                                  <span>Web-based interface for user interaction</span>
-                                </div>
-                                <div className="flex items-start gap-2">
-                                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                                  <span>Real-time AI-powered note generation capabilities</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="mt-6 p-4 bg-primary/10 rounded-lg">
-                            <p className="text-sm text-muted-foreground">
-                              <strong>View Repository:</strong> <a href="https://github.com/mohanrmoni54-collab/ai_notes_generation" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://github.com/mohanrmoni54-collab/ai_notes_generation</a>
-                            </p>
-                          </div>
-                        </div>
+                      <ScrollArea className="h-[75vh] pr-4">
+                        <AINotesGenerator />
                       </ScrollArea>
                     </DialogContent>
                   </Dialog>
